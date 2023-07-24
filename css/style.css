@@ -16,6 +16,8 @@ body {
 .list-contacts,
 .main-msg-area {
   flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .bg-grey {
@@ -42,4 +44,23 @@ body {
 
 .notifications span{
   font-size: .8rem;
+}
+
+.nav-right,
+.input-area {
+  margin-left: .3rem;
+}
+
+.card {
+  max-width: 40%;
+  padding: .7rem;
+  border-radius: 10px;
+}
+
+.card-send {
+
+}
+
+.card-receive {
+background-color: #d5f9ba;
 }
