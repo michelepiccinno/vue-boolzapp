@@ -20,6 +20,10 @@ body {
   overflow-x: hidden;
 }
 
+.input-msg-area input {
+  height: 45px;
+}
+
 .bg-grey {
   background-color: #eaeaea;
 }
@@ -42,6 +46,12 @@ body {
   background-image: url(/img/mine.jpg);
 }
 
+.notifications,
+.fa-bell-slash {
+  background-color: #8edafc;
+  color: #8edafc;
+}
+
 .notifications span {
   font-size: .8rem;
 }
@@ -52,7 +62,7 @@ body {
 }
 
 .card {
-  width: 40%;
+  width: auto;
   padding: .7rem .7rem 1rem;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -78,4 +88,19 @@ body {
 
 .list-contacts {
   margin-bottom: 0;
+}
+
+.user-options,
+.active-notif,
+.last-msg,
+.contact-options,
+.input-msg-area {
+  color: #b1b1b1;
+}
+
+
+@media only screen and (min-width: 700px) {
+  .card {
+    width: 45%;
+  }
 }

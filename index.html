@@ -43,11 +43,11 @@
                      <!-- /USER NAV -->
 
                      <!--NOTIFICATIONS-->
-                     <div class="notifications d-flex align-items-center bg-info">
+                     <div class="notifications d-flex align-items-center">
                         <i class="fa-solid fa-bell-slash fs-4 rounded-circle border bg-white p-2"></i>
-                        <div class="d-flex flex-column">
-                           <span>Ricevi notifiche di nuovi messaggi</span>
-                           <span>Attiva notifiche desktop</span>
+                        <div class="d-flex flex-column ps-2">
+                           <span class="text-black">Ricevi notifiche di nuovi messaggi</span>
+                           <span class="active-notif text-decoration-underline">Attiva notifiche desktop</span>
                         </div>
                      </div>
                      <!--/NOTIFICATIONS-->
@@ -60,20 +60,20 @@
 
                      <!-- CONTACTS LIST -->
                      <ul class="list-contacts bg-white">
-                        <li class="list-element d-flex justify-content-between py-3" v-for="singleElement in contatti">
+                        <li class="list-element d-flex py-3" v-for="singleElement in contatti">
                            <div>
                               <img class="img-avatar" v-bind:src="'/img/avatar' + singleElement.avatar + '.jpg'"
                                  alt="avatar">
                            </div>
-                           <div class="d-flex flex-column">
+                           <div class="d-flex flex-column px-4 me-auto">
                               <span>{{singleElement.name}}</span>
-                              <span>Ultimo messaggio inviato</span>
+                              <span class="last-msg">Ultimo messaggio inviato</span>
                            </div>
                            <div>
                               <span>12.40</span>
                            </div>
                         </li>
-                     </ul>
+                     </ul> 
                      <!-- /CONTACTS LIST -->
 
                   </div>
@@ -100,7 +100,7 @@
                      <!-- /CONTACT NAV -->
 
                      <!--MESSAGE AREA-->
-                     <div class="main-msg-area p-5 d-flex flex-column">
+                     <div class="main-msg-area p-2 p-lg-5 d-flex flex-column">
                         <div class="card card-send">
                            <span>invio messaggio</span>
                            <span class="card-time px-1">12.10</span>
@@ -127,7 +127,7 @@
                               <i class="fa-regular fa-face-smile"></i>
                            </div>
                            <div class="flex-grow-1">
-                              <input type="text" class="w-100" placeholder="scrivi un messaggio" name="" id="">
+                              <input type="text" class="w-100 border-0" placeholder="scrivi un messaggio" name="" id="">
                            </div>
                            <div class="p-3">
                               <i class="fa-solid fa-microphone"></i>
