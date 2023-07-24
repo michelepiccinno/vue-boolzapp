@@ -59,152 +59,21 @@
                      <!-- /SEARCH -->
 
                      <!-- CONTACTS LIST -->
-                     <div class="list-contacts bg-white">
-                        <div class="list-element d-flex justify-content-between py-3">
+                     <ul class="list-contacts bg-white">
+                        <li class="list-element d-flex justify-content-between py-3" v-for="singleElement in contatti">
                            <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
+                              <img class="img-avatar" v-bind:src="'/img/avatar' + singleElement.avatar + '.jpg'"
+                                 alt="avatar">
                            </div>
                            <div class="d-flex flex-column">
-                              <span>Michele</span>
+                              <span>{{singleElement.name}}</span>
                               <span>Ultimo messaggio inviato</span>
                            </div>
                            <div>
                               <span>12.40</span>
                            </div>
-                        </div>
-                        <div class="list-element d-flex justify-content-between py-3">
-                           <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column">
-                              <span>Michele</span>
-                              <span>Ultimo messaggio inviato</span>
-                           </div>
-                           <div>
-                              <span>12.40</span>
-                           </div>
-                        </div>
-                        <div class="list-element d-flex justify-content-between py-3">
-                           <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column">
-                              <span>Michele</span>
-                              <span>Ultimo messaggio inviato</span>
-                           </div>
-                           <div>
-                              <span>12.40</span>
-                           </div>
-                        </div>
-                        <div class="list-element d-flex justify-content-between py-3">
-                           <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column">
-                              <span>Michele</span>
-                              <span>Ultimo messaggio inviato</span>
-                           </div>
-                           <div>
-                              <span>12.40</span>
-                           </div>
-                        </div>
-                        <div class="list-element d-flex justify-content-between py-3">
-                           <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column">
-                              <span>Michele</span>
-                              <span>Ultimo messaggio inviato</span>
-                           </div>
-                           <div>
-                              <span>12.40</span>
-                           </div>
-                        </div>
-                        <div class="list-element d-flex justify-content-between py-3">
-                           <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column">
-                              <span>Michele</span>
-                              <span>Ultimo messaggio inviato</span>
-                           </div>
-                           <div>
-                              <span>12.40</span>
-                           </div>
-                        </div>
-                        <div class="list-element d-flex justify-content-between py-3">
-                           <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column">
-                              <span>Michele</span>
-                              <span>Ultimo messaggio inviato</span>
-                           </div>
-                           <div>
-                              <span>12.40</span>
-                           </div>
-                        </div>
-                        <div class="list-element d-flex justify-content-between py-3">
-                           <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column">
-                              <span>Michele</span>
-                              <span>Ultimo messaggio inviato</span>
-                           </div>
-                           <div>
-                              <span>12.40</span>
-                           </div>
-                        </div>
-                        <div class="list-element d-flex justify-content-between py-3">
-                           <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column">
-                              <span>Michele</span>
-                              <span>Ultimo messaggio inviato</span>
-                           </div>
-                           <div>
-                              <span>12.40</span>
-                           </div>
-                        </div>
-                        <div class="list-element d-flex justify-content-between py-3">
-                           <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column">
-                              <span>Michele</span>
-                              <span>Ultimo messaggio inviato</span>
-                           </div>
-                           <div>
-                              <span>12.40</span>
-                           </div>
-                        </div>
-                        <div class="list-element d-flex justify-content-between py-3">
-                           <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column">
-                              <span>Michele</span>
-                              <span>Ultimo messaggio inviato</span>
-                           </div>
-                           <div>
-                              <span>12.40</span>
-                           </div>
-                        </div>
-                        <div class="list-element d-flex justify-content-between py-3">
-                           <div>
-                              <img class="img-avatar" src="/img/avatar_1.jpg" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column">
-                              <span>Michele</span>
-                              <span>Ultimo messaggio inviato</span>
-                           </div>
-                           <div>
-                              <span>12.40</span>
-                           </div>
-                        </div>
-                     </div>
+                        </li>
+                     </ul>
                      <!-- /CONTACTS LIST -->
 
                   </div>
@@ -231,13 +100,23 @@
                      <!-- /CONTACT NAV -->
 
                      <!--MESSAGE AREA-->
-                     <div class="main-msg-area p-5">
-                           <div class="msg-box">
-                              <span class="card card-send">invio messaggio</span>
-                           </div>
-                           <div class="msg-box">
-                              <span class="card card-receive">ricezione messaggio</span>
-                           </div>
+                     <div class="main-msg-area p-5 d-flex flex-column">
+                        <div class="card card-send">
+                           <span>invio messaggio</span>
+                           <span class="card-time px-1">12.10</span>
+                        </div>
+                        <div class="card card-receive">
+                           <span>ricezione messaggio</span>
+                           <span class="card-time px-1">12.10</span>
+                        </div>
+                        <div class="card card-send">
+                           <span>invio messaggio</span>
+                           <span class="card-time px-1">12.10</span>
+                        </div>
+                        <div class="card card-receive">
+                           <span>ricezione messaggio</span>
+                           <span class="card-time px-1">12.10</span>
+                        </div>
                      </div>
                      <!--/MESSAGE AREA-->
 
@@ -263,9 +142,9 @@
                </div>
             </div>
          </main>
-         <script src="js/main.js"></script>
       </div>
    </div>
+   <script src="js/main.js"></script>
 </body>
 
 </html>

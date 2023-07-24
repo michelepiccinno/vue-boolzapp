@@ -42,7 +42,7 @@ body {
   background-image: url(/img/mine.jpg);
 }
 
-.notifications span{
+.notifications span {
   font-size: .8rem;
 }
 
@@ -52,15 +52,30 @@ body {
 }
 
 .card {
-  max-width: 40%;
-  padding: .7rem;
+  width: 40%;
+  padding: .7rem .7rem 1rem;
   border-radius: 10px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.card-time {
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  font-size: .5rem;
 }
 
 .card-send {
-
+  align-self: start;
+  background-color: #ffffff;
 }
 
 .card-receive {
-background-color: #d5f9ba;
+  align-self: end;
+  background-color: #d5f9ba;
+}
+
+.list-contacts {
+  margin-bottom: 0;
 }
