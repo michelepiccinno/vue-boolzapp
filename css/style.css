@@ -1,0 +1,19 @@
+body { 
+  width: 100vw;
+  background-color: #dadbd3;
+ /*position: relative;*/
+}
+
+.bg-body {
+  height: 200px;
+  --bs-body-bg-rgb: 0, 150, 136;
+}
+
+.container-left {
+height: calc(100vh - 100px);
+}
+
+.contacts-list,
+.main-msg-area {
+  flex-grow: 1;
+}
