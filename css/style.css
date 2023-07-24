@@ -1,7 +1,7 @@
-body { 
+body {
   width: 100vw;
   background-color: #dadbd3;
- /*position: relative;*/
+  /*position: relative;*/
 }
 
 .bg-body {
@@ -9,11 +9,37 @@ body {
   --bs-body-bg-rgb: 0, 150, 136;
 }
 
-.container-left {
-height: calc(100vh - 100px);
+.container-blocks {
+  height: calc(100vh - 100px);
 }
 
-.contacts-list,
+.list-contacts,
 .main-msg-area {
   flex-grow: 1;
+}
+
+.bg-grey {
+  background-color: #eaeaea;
+}
+
+.img-avatar {
+  max-width: 50px;
+  border-radius: 50%;
+}
+
+/*valutare se ottimizzare padding colonna sx*/
+.nav,
+.notifications,
+.search,
+.list-contacts,
+.input-msg-area {
+  padding: .5rem
+}
+
+.row {
+  background-image: url(/img/mine.jpg);
+}
+
+.notifications span{
+  font-size: .8rem;
 }
