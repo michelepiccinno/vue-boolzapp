@@ -109,7 +109,7 @@
                      <div class="main-msg-area p-2 p-lg-5 d-flex flex-column">
                         <div class="card"
                              v-for="singleMessage in currentContact.messages"
-                             v-bind:class= "[singleMessage.status === 'sent' ? 'card-send' : 'card-receive']">
+                             v-bind:class= "[singleMessage.status === 'received' ? 'card-receive' : 'card-send']">
                              <span>{{singleMessage.message}}</span>
                            </div>
                      </div>

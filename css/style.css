@@ -76,12 +76,12 @@ body {
   font-size: .5rem;
 }
 
-.card-send {
+.card-receive {
   align-self: start;
   background-color: #ffffff;
 }
 
-.card-receive {
+.card-send {
   align-self: end;
   background-color: #d5f9ba;
 }

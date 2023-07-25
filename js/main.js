@@ -44,7 +44,7 @@ const app = createApp({
             {
               date: "20/03/2020 16:35:00",
               message: "Mi piacerebbe ma devo andare a fare la spesa.",
-              status: "received",
+              status: "sent",
             },
           ],
         },
@@ -96,20 +96,31 @@ const app = createApp({
 
   methods: {
 
-
+    /**Riceve in input l'oggetto selezionato con click
+     * e lo clona in un array "temporanea"
+     */
     selectContact(singleContact) {
       this.currentContact = singleContact;
-      console.log(this.currentContact);
     },
 
+    /**Preleva il valore del 'name' dell'oggetto corrente.
+     * Ricerca nell'array un oggetto con nome identico e 
+     * pusha il messaggio nello stesso oggetto
+     */
     sendChatMsg() {
-        this.contatti[0].messages.push({message: this.message})
+      for (let i = 0; i <= this.contatti.length; i++) {
+        if (this.contatti[i].name === this.currentContact.name) {
+          this.contatti[i].messages.push({ message: this.message })
+        }
+      }
     },
 
 
   },
 
-
+  /**Assegna al contatto corrente il primo contatto 
+   * dell'array di oggetti
+   */
   beforeMount() {
     this.currentContact = this.contatti[0]
   }
