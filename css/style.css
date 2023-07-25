@@ -43,7 +43,7 @@ body {
 }
 
 .row {
-  background-image: url(/imgs/mine.jpg);
+  background-image: url(../imgs/mine.jpg);
 }
 
 .notifications,
