@@ -89,12 +89,14 @@ const app = createApp({
 
       currentContact: null,
 
-      message: ''
+      messageIn: '',
 
     }
   },
 
+  
   methods: {
+
 
     /**Riceve in input l'oggetto selezionato con click
      * e lo clona in un array "temporanea"
@@ -103,23 +105,61 @@ const app = createApp({
       this.currentContact = singleContact;
     },
 
+
     /**Preleva il valore del 'name' dell'oggetto corrente.
      * Ricerca nell'array un oggetto con nome identico e 
-     * pusha il messaggio nello stesso oggetto
+     * pusha il messaggio nello stesso oggetto.
+     * Una volta pushato il messaggio la funzione chiama
+     * una funzione anonima che a sua volta 
+     * richiama this.pushOkMessage(singleObj)
      */
     sendChatMsg() {
-      for (let i = 0; i <= this.contatti.length; i++) {
-        if (this.contatti[i].name === this.currentContact.name) {
-          this.contatti[i].messages.push({ message: this.message })
+      for (let i = 0; i < this.contatti.length; i++) {
+        let singleObj = this.contatti[i];
+        if (singleObj.name === this.currentContact.name) {
+          singleObj.messages.push({ message: this.messageIn, status: 'sent', date: this.assingDate() });
+
+          setTimeout(() => {
+            this.pushOkMessage(singleObj);
+          }, 1000);
         }
       }
     },
 
 
+    /**Riceve Un oggetto e pusha al suo interno 
+     * un array di 3 elementi (message, status, date)
+     * 
+     * @param {object} singleObj 
+     */
+    pushOkMessage(singleObj) {
+      singleObj.messages.push({ message: 'OK', status: 'received', date: this.assingDate() })
+    },
+
+
+
+    /**Assegna la data alla variabile temporanea
+     * che a sua volta viene richiamata nel HTML     *
+     */
+    assingDate() {
+      const date = new Date();
+      const timeFormatted = new Intl.DateTimeFormat('it-IT', {
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+      }).format(date);
+      console.log(timeFormatted);
+      return timeFormatted;
+    }
+
   },
 
-  /**Assegna al contatto corrente il primo contatto 
-   * dell'array di oggetti
+
+
+  /**All'apertura della pagina assegna al contatto corrente 
+   * il primo contatto dell'array di oggetti
    */
   beforeMount() {
     this.currentContact = this.contatti[0]

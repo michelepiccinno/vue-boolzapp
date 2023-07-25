@@ -37,7 +37,6 @@ body {
 .nav,
 .notifications,
 .search,
-.list-contacts,
 .input-msg-area {
   padding: .5rem
 }
@@ -71,8 +70,8 @@ body {
 
 .card-time {
   position: absolute;
-  right: 1px;
-  bottom: 1px;
+  right: 3px;
+  bottom: 3px;
   font-size: .5rem;
 }
 
@@ -90,6 +89,13 @@ body {
   margin-bottom: 0;
 }
 
+.btn-contacts {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
 .user-options,
 .active-notif,
 .last-msg,
@@ -98,9 +104,16 @@ body {
   color: #b1b1b1;
 }
 
+.list-element{
+  border-left: none;
+  border-right: none;
+}
+
+
 
 @media only screen and (min-width: 700px) {
   .card {
     width: 45%;
   }
 }
+
