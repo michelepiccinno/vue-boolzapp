@@ -85,22 +85,23 @@ const app = createApp({
             },
           ],
         },
-      ]
+      ],
+
+      currentContact: null
     }
   },
 
   methods: {
-
-    selectContact(contact) {
-      contact.forEach(element => {
-        console.log(element);
-
-      });
+    selectContact(singleContact) {
+      this.currentContact = singleContact;
+      console.log(this.currentContact);
     }
+  },
 
+beforeMount() {
+  this.currentContact = this.contatti[0]
+}
 
-
-  }
 }).mount('#app');
 
 

@@ -90,8 +90,12 @@
                      <!--CONTACT NAV-->
                      <div class="nav nav-right bg-grey d-flex justify-content-between align-items-center">
                         <div class="contact-info">
-                           <img class="img-avatar" src="imgs/avatar_1.jpg" alt="avatar">
-                           <span>Michele</span>
+                           <img class="img-avatar" 
+                                v-bind:src="'imgs/avatar' + currentContact.avatar + '.jpg'" alt="avatar">
+                           <div class="d-inline-grid align-bottom">
+                              <span>{{currentContact.name}}</span>
+                              <div><span class="last-access">Ultimo messaggio inviato</span></div>
+                           </div>
                         </div>
                         <div class="contact-options d-flex gap-3">
                            <span><i class="fa-solid fa-magnifying-glass"></i></span>
@@ -103,30 +107,11 @@
 
                      <!--MESSAGE AREA-->
                      <div class="main-msg-area p-2 p-lg-5 d-flex flex-column">
-                        
-                        <div class="card card-send"
-                             v-for="singleMessage in contatti"
-                             >
-                             <span>{{singleMessage}}</span>
+                        <div class="card"
+                             v-for="singleMessage in currentContact.messages"
+                             v-bind:class= "[singleMessage.status === 'sent' ? 'card-send' : 'card-receive']">
+                             <span>{{singleMessage.message}}</span>
                            </div>
-                        
-                        
-                        <div class="card card-send">
-                           <span>invio messaggio</span>
-                           <span class="card-time px-1">12.10</span>
-                        </div>
-                        <div class="card card-receive">
-                           <span>ricezione messaggio</span>
-                           <span class="card-time px-1">12.10</span>
-                        </div>
-                        <div class="card card-send">
-                           <span>invio messaggio</span>
-                           <span class="card-time px-1">12.10</span>
-                        </div>
-                        <div class="card card-receive">
-                           <span>ricezione messaggio</span>
-                           <span class="card-time px-1">12.10</span>
-                        </div>
                      </div>
                      <!--/MESSAGE AREA-->
 
