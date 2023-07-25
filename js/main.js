@@ -4,6 +4,7 @@ const { createApp } = Vue
 const app = createApp({
   data() {
     return {
+
       contatti: [
         {
           name: "Michele",
@@ -90,10 +91,12 @@ const app = createApp({
 
   methods: {
 
-    show(){
-      console.log(this.contatti);
-    }
+    selectContact(contact) {
+      contact.forEach(element => {
+        console.log(element);
 
+      });
+    }
 
 
 
