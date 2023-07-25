@@ -87,20 +87,32 @@ const app = createApp({
         },
       ],
 
-      currentContact: null
+      currentContact: null,
+
+      message: ''
+
     }
   },
 
   methods: {
+
+
     selectContact(singleContact) {
       this.currentContact = singleContact;
       console.log(this.currentContact);
-    }
+    },
+
+    sendChatMsg() {
+        this.contatti[0].messages.push({message: this.message})
+    },
+
+
   },
 
-beforeMount() {
-  this.currentContact = this.contatti[0]
-}
+
+  beforeMount() {
+    this.currentContact = this.contatti[0]
+  }
 
 }).mount('#app');
 
