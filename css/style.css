@@ -1,7 +1,10 @@
+:root {
+  --bs-border-width: 0px;
+}
+
 body {
   width: 100vw;
   background-color: #dadbd3;
-  /*position: relative;*/
 }
 
 .bg-body {
@@ -68,11 +71,20 @@ body {
   position: relative;
 }
 
-.card-time {
+.card-time,
+.menu-del {
   position: absolute;
+  font-size: .5rem;
+}
+
+.card-time {
   right: 3px;
   bottom: 3px;
-  font-size: .5rem;
+}
+
+.menu-del {
+  right: -5px;
+  top: -10px;
 }
 
 .card-receive {
@@ -104,16 +116,22 @@ body {
   color: #b1b1b1;
 }
 
-.list-element{
+.list-element {
   border-left: none;
   border-right: none;
 }
 
+button .dropdown-toggle {
+  border: var(--bs-border-width);
+}
 
+.dropdown-menu[data-bs-popper] {
+  top: 65%;
+  right: 10px;
+}
 
 @media only screen and (min-width: 700px) {
   .card {
     width: 45%;
   }
 }
-

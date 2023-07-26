@@ -173,6 +173,7 @@ const app = createApp({
       currentContact: null,
 
       messageIn: '',
+
     }
   },
 
@@ -243,6 +244,23 @@ const app = createApp({
       }).format(date);
       console.log(timeFormatted);
       return timeFormatted;
+    },
+
+
+    /**IN FASE DI COMPLETAMENTO
+     * (cancella il messaggio dalla chat)
+     */
+    deleteMessage(message) {
+      let currentIndexContact =
+        this.contatti.indexOf(this.currentContact);
+      let currentIndexMessages =
+        this.contatti[currentIndexContact].messages.indexOf(message);
+
+      console.log(`posizione oggetto: ${currentIndexContact}`);
+      console.log(`posizione messaggio: ${currentIndexMessages}`);
+      alert('il messaggio da cancellare si trova all oggetto INDICE ' + currentIndexContact + ' - con messaggio INDICE: ' + currentIndexMessages);
+
+     this.contatti[currentIndexContact].messages.splice(1, 1);
     }
 
   },
