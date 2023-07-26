@@ -149,6 +149,7 @@ const app = createApp({
         year: 'numeric',
         hour: 'numeric',
         minute: 'numeric',
+        second: 'numeric',
       }).format(date);
       console.log(timeFormatted);
       return timeFormatted;

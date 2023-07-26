@@ -113,7 +113,7 @@
                              v-for="singleMessage in currentContact.messages"
                              v-bind:class= "[singleMessage.status === 'received' ? 'card-receive' : 'card-send']">
                              <span>{{singleMessage.message}}</span>
-                             <span class="card-time">{{singleMessage.date.slice(-5)}}</span>
+                             <span class="card-time">{{singleMessage.date.slice(-8, -3)}}</span>
                            </div>   
                      </div>
                      <!--/MESSAGE AREA-->
