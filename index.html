@@ -54,7 +54,7 @@
 
                      <!-- SEARCH -->
                      <div class="search bg-white">
-                        <input type="text" class="w-100" placeholder="Cerca o inizia una nuova chat" name="" id="">
+                        <input type="text" v-model="searchContact" class="w-100" placeholder="Cerca o inizia una nuova chat" name="" id="">
                      </div>
                      <!-- /SEARCH -->
 
@@ -62,7 +62,7 @@
                      <ul class="list-contacts list-group bg-white">
                         <button class="btn-contacts">
                            <li class="list-element list-group-item list-group-item-action d-flex py-3" 
-                            v-for="singleContact in contatti"
+                            v-for="singleContact in filteredContacts"
                             @click="selectContact(singleContact)">
                            <div>
                               <img class="img-avatar" 
