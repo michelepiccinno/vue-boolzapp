@@ -202,24 +202,18 @@ const app = createApp({
     },
 
 
-    /**Preleva il valore del 'name' dell'oggetto corrente.
-     * Ricerca nell'array un oggetto con nome identico e 
-     * pusha il messaggio nello stesso oggetto.
-     * Una volta pushato il messaggio la funzione chiama
-     * una funzione anonima che a sua volta 
-     * richiama this.pushOkMessage(singleObj)
+    /**Legge l'indice dell'oggetto identico all'oggetto corrente (currentContact). 
+     *Pusha nell'array (all'indice letto prima) di messaggi (contenuta nell'oggetto) 
+     *il messaggio in input.
+     * Una volta pushato il messaggio viene invocata una funzione anonima setTimeout
      */
     sendChatMsg() {
-      for (let i = 0; i < this.contatti.length; i++) {
-        let singleObj = this.contatti[i];
-        if (singleObj.name === this.currentContact.name) {
-          singleObj.messages.push({ message: this.messageIn, status: 'sent', date: this.assingDate() });
+      let currentIndex = this.contatti.indexOf(this.currentContact);
+      this.contatti[currentIndex].messages.push({ message: this.messageIn, status: 'sent', date: this.assingDate() });
+      setTimeout(() => {
+        this.pushOkMessage(this.contatti[currentIndex]);
+      }, 1000);
 
-          setTimeout(() => {
-            this.pushOkMessage(singleObj);
-          }, 1000);
-        }
-      }
     },
 
 
@@ -252,7 +246,6 @@ const app = createApp({
     }
 
   },
-
 
 
   /**All'apertura della pagina assegna al contatto corrente 
