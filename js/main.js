@@ -209,7 +209,11 @@ const app = createApp({
      * Una volta pushato il messaggio viene invocata una funzione anonima setTimeout
      */
     sendChatMsg() {
-      this.currentContact.messages.push({ message: this.messageIn, status: 'sent', date: this.assingDate() });
+      this.currentContact.messages.push({
+        message: this.messageIn,
+        status: 'sent',
+        date: this.assingDate()
+      });
       setTimeout(() => {
         this.pushOkMessage(this.currentContact);
       }, 1000);
@@ -223,7 +227,11 @@ const app = createApp({
      * @param {object} singleObj 
      */
     pushOkMessage(singleObj) {
-      singleObj.messages.push({ message: 'OK', status: 'received', date: this.assingDate() })
+      singleObj.messages.push({
+        message: 'OK',
+        status: 'received',
+        date: this.assingDate()
+      })
     },
 
 
@@ -255,7 +263,7 @@ const app = createApp({
     deleteMessage(message) {
       let currentIndexMessages =
         this.currentContact.messages.indexOf(message);
-     this.currentContact.messages.splice([currentIndexMessages], 1);
+      this.currentContact.messages.splice([currentIndexMessages], 1);
     }
 
   },
