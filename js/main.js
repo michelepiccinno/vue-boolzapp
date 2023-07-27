@@ -203,10 +203,9 @@ const app = createApp({
     },
 
 
-    /**Legge l'indice dell'oggetto identico all'oggetto corrente (currentContact). 
-     *Pusha nell'array (all'indice letto prima) di messaggi (contenuta nell'oggetto) 
+    /**Pusha nell'array di messaggi di currentContact
      *il messaggio in input.
-     * Una volta pushato il messaggio viene invocata una funzione anonima setTimeout
+     * Una volta pushato il messaggio viene eseguita la funzione setTimeout
      */
     sendChatMsg() {
       this.currentContact.messages.push({
@@ -217,9 +216,11 @@ const app = createApp({
       setTimeout(() => {
         this.pushOkMessage(this.currentContact);
       }, 1000);
-
     },
 
+
+
+    
 
     /**Riceve Un oggetto e pusha al suo interno 
      * un array di 3 elementi (message, status, date)

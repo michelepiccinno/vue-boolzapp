@@ -69,10 +69,10 @@
                            </div>
                            <div class="d-flex flex-column px-4 me-auto">
                               <span>{{singleContact.name}}</span>
-                              <span class="last-msg">Ultimo messaggio</span>
+                              <span class="last-msg">{{singleContact.messages[singleContact.messages.length - 1].message}}</span>
                            </div>
                            <div>
-                              <span>12.40</span>
+                              <span>{{singleContact.messages[singleContact.messages.length - 1].date.slice(-8, -3)}}</span>
                            </div>
                            </li>
                         </button>
@@ -95,7 +95,7 @@
                                 v-bind:src="'imgs/avatar' + currentContact.avatar + '.jpg'" alt="avatar">
                            <div class="d-inline-grid align-bottom">
                               <span>{{currentContact.name}}</span>
-                              <div><span class="last-access">Ultimo messaggio inviato</span></div>
+                              <div><span class="last-access">{{currentContact.messages[currentContact.messages.length - 1].date.slice(-8, -3)}}</span></div>
                            </div>
                         </div>
                         <div class="contact-options d-flex gap-3">
