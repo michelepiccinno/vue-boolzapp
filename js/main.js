@@ -186,7 +186,7 @@ const app = createApp({
       */
     filteredContacts() {
       let filteredContacts = this.contatti.filter((singleContact) => {
-        return singleContact.name.toLowerCase().startsWith(this.searchContact.toLowerCase());
+        return singleContact.name.toLowerCase().includes(this.searchContact.toLowerCase());
       });
       return filteredContacts;
     },
@@ -209,10 +209,9 @@ const app = createApp({
      * Una volta pushato il messaggio viene invocata una funzione anonima setTimeout
      */
     sendChatMsg() {
-      let currentIndex = this.contatti.indexOf(this.currentContact);
-      this.contatti[currentIndex].messages.push({ message: this.messageIn, status: 'sent', date: this.assingDate() });
+      this.currentContact.messages.push({ message: this.messageIn, status: 'sent', date: this.assingDate() });
       setTimeout(() => {
-        this.pushOkMessage(this.contatti[currentIndex]);
+        this.pushOkMessage(this.currentContact);
       }, 1000);
 
     },
@@ -230,7 +229,7 @@ const app = createApp({
 
 
     /**Assegna la data alla variabile temporanea
-     * che a sua volta viene richiamata nel HTML     *
+     * che a sua volta viene richiamata nel HTML   
      */
     assingDate() {
       const date = new Date();
@@ -249,17 +248,14 @@ const app = createApp({
 
     /**Riceve in input il "sotto-oggetto" messages da eliminare 
      *(Tale oggetto contiene 3 elementi: message, status, date)
-     * Recupera l'indice del contatto corrente
      * Recupera l'indice del messaggio corrente (del contatto corrente)
-     * Elimina dall'array "messages" il messaggio corrispondente 
-     * ai due indici sopra menzionati
+     * Nel currentcontact elimina dall'array "messages" il messaggio corrispondente 
+     * Il currentcontact è reattivo e si aggiorna nel html
      */
     deleteMessage(message) {
-      let currentIndexContact =
-        this.contatti.indexOf(this.currentContact);
       let currentIndexMessages =
-        this.contatti[currentIndexContact].messages.indexOf(message);
-     this.contatti[currentIndexContact].messages.splice([currentIndexMessages], 1);
+        this.currentContact.messages.indexOf(message);
+     this.currentContact.messages.splice([currentIndexMessages], 1);
     }
 
   },
