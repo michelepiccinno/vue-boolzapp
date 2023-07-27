@@ -247,8 +247,12 @@ const app = createApp({
     },
 
 
-    /**IN FASE DI COMPLETAMENTO
-     * (cancella il messaggio dalla chat)
+    /**Riceve in input il "sotto-oggetto" messages da eliminare 
+     *(Tale oggetto contiene 3 elementi: message, status, date)
+     * Recupera l'indice del contatto corrente
+     * Recupera l'indice del messaggio corrente (del contatto corrente)
+     * Elimina dall'array "messages" il messaggio corrispondente 
+     * ai due indici sopra menzionati
      */
     deleteMessage(message) {
       let currentIndexContact =
