@@ -213,8 +213,9 @@ const app = createApp({
         status: 'sent',
         date: this.assingDate()
       });
+      const contactToReply = this.currentContact 
       setTimeout(() => {
-        this.pushOkMessage(this.currentContact);
+        this.pushOkMessage(contactToReply);
       }, 1000);
     },
 
