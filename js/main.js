@@ -9,6 +9,7 @@ const app = createApp({
         {
           name: "Michele",
           avatar: '_1',
+          visible: false,
           messages: [
             {
               date: '10/01/2020 15:30:55',
@@ -30,7 +31,7 @@ const app = createApp({
         {
           name: 'Fabio',
           avatar: '_2',
-          visible: true,
+          visible: false,
           messages: [
             {
               date: '20/03/2020 16:30:00',
@@ -52,7 +53,7 @@ const app = createApp({
         {
           name: 'Samuele',
           avatar: '_3',
-          visible: true,
+          visible: false,
           messages: [
             {
               date: '28/03/2020 10:10:40',
@@ -74,7 +75,7 @@ const app = createApp({
         {
           name: 'Alessandro B.',
           avatar: '_4',
-          visible: true,
+          visible: false,
           messages: [
             {
               date: '10/01/2020 15:30:55',
@@ -91,7 +92,7 @@ const app = createApp({
         {
           name: 'Alessandro L.',
           avatar: '_5',
-          visible: true,
+          visible: false,
           messages: [
             {
               date: '10/01/2020 15:30:55',
@@ -108,7 +109,7 @@ const app = createApp({
         {
           name: 'Claudia',
           avatar: '_6',
-          visible: true,
+          visible: false,
           messages: [
             {
               date: '10/01/2020 15:30:55',
@@ -130,7 +131,7 @@ const app = createApp({
         {
           name: 'Federico',
           avatar: '_7',
-          visible: true,
+          visible: false,
           messages: [
             {
               date: '10/01/2020 15:30:55',
@@ -147,7 +148,7 @@ const app = createApp({
         {
           name: 'Davide',
           avatar: '_8',
-          visible: true,
+          visible: false,
           messages: [
             {
               date: '10/01/2020 15:30:55',
@@ -174,6 +175,8 @@ const app = createApp({
 
       messageIn: '',
 
+      oldSelectedContact: '',
+
     }
   },
 
@@ -196,10 +199,18 @@ const app = createApp({
   methods: {
 
     /**Riceve in input l'oggetto selezionato con click
-     * e lo clona in un array "temporanea"
-     */
+     * e lo clona in un array "temporanea" reattiva (currentContact). 
+     * Gestisce la logica di background-color del contatto selezionato
+    */
     selectContact(singleContact) {
       this.currentContact = singleContact;
+      singleContact.visible = true;
+      this.filteredContacts.forEach(element => {
+        if (element === this.oldSelectedContact) {
+          element.visible = false;
+        }
+      });
+      this.oldSelectedContact = singleContact;
     },
 
 
@@ -213,7 +224,7 @@ const app = createApp({
         status: 'sent',
         date: this.assingDate()
       });
-      const contactToReply = this.currentContact 
+      const contactToReply = this.currentContact
       setTimeout(() => {
         this.pushOkMessage(contactToReply);
       }, 1000);
@@ -221,7 +232,7 @@ const app = createApp({
 
 
 
-    
+
 
     /**Riceve Un oggetto e pusha al suo interno 
      * un array di 3 elementi (message, status, date)

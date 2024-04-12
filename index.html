@@ -5,14 +5,19 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+   <!--    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+      crossorigin="anonymous"></script>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
       integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
    <link rel="stylesheet" href="css/style.css">
    <title>Titolo</title>
 </head>
@@ -53,30 +58,33 @@
 
                      <!-- SEARCH -->
                      <div class="search bg-white">
-                        <input type="text" v-model="searchContact" class="w-100" placeholder="Cerca o inizia una nuova chat" name="" id="">
+                        <input type="text" v-model="searchContact" class="w-100"
+                           placeholder="Cerca o inizia una nuova chat" name="" id="">
                      </div>
                      <!-- /SEARCH -->
 
                      <!-- CONTACTS LIST -->
                      <ul class="list-contacts list-group bg-white">
                         <button class="btn-contacts">
-                           <li class="list-element list-group-item list-group-item-action d-flex py-3" 
-                            v-for="singleContact in filteredContacts"
-                            @click="selectContact(singleContact)">
-                           <div>
-                              <img class="img-avatar" 
-                                   v-bind:src="'imgs/avatar' + singleContact.avatar + '.jpg'" alt="avatar">
-                           </div>
-                           <div class="d-flex flex-column px-4 me-auto">
-                              <span>{{singleContact.name}}</span>
-                              <span class="last-msg">{{singleContact.messages[singleContact.messages.length - 1].message}}</span>
-                           </div>
-                           <div>
-                              <span>{{singleContact.messages[singleContact.messages.length - 1].date.slice(-8, -3)}}</span>
-                           </div>
+                           <li class="list-element list-group-item list-group-item-action d-flex py-3"
+                              v-bind:class="singleContact.visible ? 'bg-body-secondary' : ''"
+                              v-for="(singleContact) in filteredContacts" @click="selectContact(singleContact)">
+                              <div>
+                                 <img class="img-avatar" v-bind:src="'imgs/avatar' + singleContact.avatar + '.jpg'"
+                                    alt="avatar">
+                              </div>
+                              <div class="d-flex flex-column px-4 me-auto">
+                                 <span>{{singleContact.name}}</span>
+                                 <span class="last-msg">{{singleContact.messages[singleContact.messages.length -
+                                    1].message}}</span>
+                              </div>
+                              <div>
+                                 <span>{{singleContact.messages[singleContact.messages.length - 1].date.slice(-8,
+                                    -3)}}</span>
+                              </div>
                            </li>
                         </button>
-                     </ul> 
+                     </ul>
                      <!-- /CONTACTS LIST -->
 
                   </div>
@@ -91,11 +99,12 @@
                      <!--CONTACT NAV-->
                      <div class="nav nav-right bg-grey d-flex justify-content-between align-items-center">
                         <div class="contact-info">
-                           <img class="img-avatar" 
-                                v-bind:src="'imgs/avatar' + currentContact.avatar + '.jpg'" alt="avatar">
+                           <img class="img-avatar" v-bind:src="'imgs/avatar' + currentContact.avatar + '.jpg'"
+                              alt="avatar">
                            <div class="d-inline-grid align-bottom">
                               <span>{{currentContact.name}}</span>
-                              <div><span class="last-access">{{currentContact.messages[currentContact.messages.length - 1].date.slice(-8, -3)}}</span></div>
+                              <div><span class="last-access">{{currentContact.messages[currentContact.messages.length -
+                                    1].date.slice(-8, -3)}}</span></div>
                            </div>
                         </div>
                         <div class="contact-options d-flex gap-3">
@@ -108,22 +117,22 @@
 
                      <!--MESSAGE AREA-->
                      <div class="main-msg-area p-2 p-lg-5 d-flex flex-column">
-                        <div class="card"
-                             v-for="singleMessage in currentContact.messages"
-                             v-bind:class= "[singleMessage.status === 'received' ? 'card-receive' : 'card-send']">
-                             <span>{{singleMessage.message}}</span>
-                             <span class="card-time">{{singleMessage.date.slice(-8, -3)}}</span>
-                             <span class="menu-del">
+                        <div class="card" v-for="singleMessage in currentContact.messages"
+                           v-bind:class="[singleMessage.status === 'received' ? 'card-receive' : 'card-send']">
+                           <span>{{singleMessage.message}}</span>
+                           <span class="card-time">{{singleMessage.date.slice(-8, -3)}}</span>
+                           <span class="menu-del">
                               <div class="btn-group">
-                                 <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                 <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                    data-bs-display="static" aria-expanded="false">
                                  </button>
                                  <ul class="dropdown-menu dropdown-menu-sm-end">
-                                   <li><a class="dropdown-item" 
-                                          @click="deleteMessage(singleMessage)" href="#">Elimina messaggio</a></li>
+                                    <li><a class="dropdown-item" @click="deleteMessage(singleMessage)" href="#">Elimina
+                                          messaggio</a></li>
                                  </ul>
-                               </div>
-                             </span>
-                           </div>   
+                              </div>
+                           </span>
+                        </div>
                      </div>
                      <!--/MESSAGE AREA-->
 
@@ -134,8 +143,8 @@
                               <i class="fa-regular fa-face-smile"></i>
                            </div>
                            <div class="flex-grow-1">
-                              <input type="text" class="w-100 border-0" placeholder="scrivi un messaggio" 
-                                     v-model="messageIn" @keyup.enter="sendChatMsg" name="" id="">
+                              <input type="text" class="w-100 border-0" placeholder="scrivi un messaggio"
+                                 v-model="messageIn" @keyup.enter="sendChatMsg" name="" id="">
                            </div>
                            <div class="p-3">
                               <i class="fa-solid fa-microphone"></i>
