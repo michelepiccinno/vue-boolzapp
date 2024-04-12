@@ -203,7 +203,7 @@ const app = createApp({
     */
     selectContact(selectedContact) {
       this.currentContact = selectedContact;
-      this.filteredContacts.forEach(element => {
+      this.contatti.forEach(element => {
         if (element === this.oldSelectedContact) {
           element.visible = false;
         } else {
