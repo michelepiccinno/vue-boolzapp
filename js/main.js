@@ -7,7 +7,7 @@ const app = createApp({
 
       contatti: [
         {
-          name: "Michele",
+          name: "Carolina",
           avatar: '_1',
           visible: false,
           messages: [
@@ -79,7 +79,7 @@ const app = createApp({
           messages: [
             {
               date: '10/01/2020 15:30:55',
-              message: 'Lo sai che ha aperto una nuova pizzeria?',
+              message: 'Lo sai che hanno inaugurato una nuova pizzeria?',
               status: 'sent'
             },
             {
@@ -129,7 +129,7 @@ const app = createApp({
           ],
         },
         {
-          name: 'Federico',
+          name: 'Federica',
           avatar: '_7',
           visible: false,
           messages: [
@@ -146,7 +146,7 @@ const app = createApp({
           ],
         },
         {
-          name: 'Davide',
+          name: 'Maria',
           avatar: '_8',
           visible: false,
           messages: [
