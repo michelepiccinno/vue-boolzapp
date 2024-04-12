@@ -56,6 +56,10 @@ body {
   color: #8edafc;
 }
 
+.fa-rotate-left {
+  color: #b1b1b1;
+}
+
 .notifications span {
   font-size: .8rem;
 }
@@ -132,8 +136,9 @@ button .dropdown-toggle {
   right: 10px;
 }
 
+/* 
 @media only screen and (min-width: 700px) {
   .card {
     width: 45%;
   }
-}
+} */

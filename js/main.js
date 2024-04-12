@@ -177,6 +177,8 @@ const app = createApp({
 
       oldSelectedContact: null,
 
+      onOffMessageBox: null,
+
     }
   },
 
@@ -211,8 +213,8 @@ const app = createApp({
         }
       });
       this.oldSelectedContact = selectedContact;
+      this.onOffMessageBox = true;
     },
-
 
     /**Pusha nell'array di messaggi di currentContact
      *il messaggio in input.
@@ -238,7 +240,7 @@ const app = createApp({
      */
     pushOkMessage(singleObj) {
       singleObj.messages.push({
-        message: 'OK',
+        message: 'Test Risposta Automatica',
         status: 'received',
         date: this.assingDate()
       })

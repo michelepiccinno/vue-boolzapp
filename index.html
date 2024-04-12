@@ -26,11 +26,12 @@
    <div class="bg-body">
       <div id="app">
          <main class="py-5">
-            <div class="container">
+            <div class="container-xl">
                <div class="row d-flex justify-content-center g-0">
 
                   <!--LEFT SIDE-->
-                  <div class="container-blocks col-4 d-flex flex-column">
+                  <div class="container-blocks col col-md-4 d-flex flex-column"
+                     v-bind:class="onOffMessageBox ? 'd-none d-md-flex' : ''">
 
                      <!--USER NAV-->
                      <div class="nav bg-grey d-flex justify-content-between align-items-center">
@@ -38,17 +39,18 @@
                            <img class="img-avatar" src="imgs/avatar_io.jpg" alt="avatar">
                            <span>Luigi</span>
                         </div>
-                        <div class="user-options d-flex gap-3">
+                        <butto class="user-options d-flex gap-3">
                            <span><i class="fa-solid fa-circle-notch"></i></span>
                            <span><i class="fa-solid fa-message"></i></span>
                            <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
-                        </div>
+                        </butto>
                      </div>
                      <!-- /USER NAV -->
 
                      <!--NOTIFICATIONS-->
                      <div class="notifications d-flex align-items-center">
-                        <i class="fa-solid fa-bell-slash fs-4 rounded-circle border bg-white p-2"></i>
+                        <i class="fa-solid fa-bell-slash fs-4 rounded-circle border bg-white p-2"
+                           style="--bs-aspect-ratio: 1/1"></i>
                         <div class="d-flex flex-column ps-2">
                            <span class="text-black">Ricevi notifiche di nuovi messaggi</span>
                            <span class="active-notif text-decoration-underline">Attiva notifiche desktop</span>
@@ -94,7 +96,8 @@
 
 
                   <!--RIGHT SIDE-->
-                  <div class="container-blocks col-8 d-flex flex-column">
+                  <div class="container-blocks col col-md-8  d-md-flex flex-column"
+                     v-bind:class="onOffMessageBox ? 'd-flex' : 'd-none'">
 
                      <!--CONTACT NAV-->
                      <div class="nav nav-right bg-grey d-flex justify-content-between align-items-center">
@@ -108,6 +111,8 @@
                            </div>
                         </div>
                         <div class="contact-options d-flex gap-3">
+                           <a class="d-md-none" href="" @click="!onOffMessageBox">
+                           <i class="fa-solid fa-rotate-left"></i></a>
                            <span><i class="fa-solid fa-magnifying-glass"></i></span>
                            <span><i class="fa-solid fa-paperclip"></i></span>
                            <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
