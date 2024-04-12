@@ -175,7 +175,7 @@ const app = createApp({
 
       messageIn: '',
 
-      oldSelectedContact: '',
+      oldSelectedContact: null,
 
     }
   },
@@ -193,7 +193,6 @@ const app = createApp({
       });
       return filteredContacts;
     },
-
   },
 
   methods: {
@@ -202,15 +201,16 @@ const app = createApp({
      * e lo clona in un array "temporanea" reattiva (currentContact). 
      * Gestisce la logica di background-color del contatto selezionato
     */
-    selectContact(singleContact) {
-      this.currentContact = singleContact;
-      singleContact.visible = true;
+    selectContact(selectedContact) {
+      this.currentContact = selectedContact;
       this.filteredContacts.forEach(element => {
         if (element === this.oldSelectedContact) {
           element.visible = false;
+        } else {
+          selectedContact.visible = true;
         }
       });
-      this.oldSelectedContact = singleContact;
+      this.oldSelectedContact = selectedContact;
     },
 
 
@@ -229,9 +229,6 @@ const app = createApp({
         this.pushOkMessage(contactToReply);
       }, 1000);
     },
-
-
-
 
 
     /**Riceve Un oggetto e pusha al suo interno 
