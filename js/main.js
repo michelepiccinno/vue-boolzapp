@@ -17,12 +17,12 @@ const app = createApp({
               status: 'sent'
             },
             {
-              date: '10/01/2020 15:50:00',
+              date: '11/01/2020 15:50:00',
               message: 'Ricordati di stendere i panni',
               status: 'sent'
             },
             {
-              date: '10/01/2020 16:15:22',
+              date: '12/01/2020 16:15:22',
               message: 'Tutto fatto!',
               status: 'received'
             }
@@ -61,12 +61,12 @@ const app = createApp({
               status: 'received'
             },
             {
-              date: '28/03/2020 10:20:10',
+              date: '29/03/2020 10:20:10',
               message: 'Sicuro di non aver sbagliato chat?',
               status: 'sent'
             },
             {
-              date: '28/03/2020 16:15:22',
+              date: '30/03/2020 16:15:22',
               message: 'Ah scusa!',
               status: 'received'
             }
@@ -139,7 +139,7 @@ const app = createApp({
               status: 'sent'
             },
             {
-              date: '10/01/2020 15:50:00',
+              date: '11/01/2020 15:50:00',
               message: 'Grazie per avermelo ricordato, le scrivo subito!',
               status: 'received'
             }
@@ -151,17 +151,17 @@ const app = createApp({
           visible: false,
           messages: [
             {
-              date: '10/01/2020 15:30:55',
+              date: '10/05/2020 08:30:55',
               message: 'Ciao, andiamo a mangiare la pizza stasera?',
               status: 'received'
             },
             {
-              date: '10/01/2020 15:50:00',
+              date: '11/05/2020 15:50:00',
               message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
               status: 'sent'
             },
             {
-              date: '10/01/2020 15:51:00',
+              date: '11/05/2020 15:51:00',
               message: 'OK!!',
               status: 'received'
             }
@@ -171,11 +171,11 @@ const app = createApp({
 
       searchContact: '',
 
-      currentContact: null,
+      /* currentContact: null, */
 
       messageIn: '',
 
-      oldSelectedContact: null,
+      /* oldSelectedContact: null, */
 
       onOffMessageBox: null,
 
@@ -188,12 +188,13 @@ const app = createApp({
     /**Confronta i caratteri digitati nella search input con i caratteri che compongo
       *in nomi contenuti nell'array di oggetti e ritorna i contatti filtrati nella
       *let "filteredContacts. 
+      *Dispone i contatti in ordine decrescente rispetto all'hh.mm dell'ultimo messaggio inviato o ricevuto
       */
     filteredContacts() {
       let filteredContacts = this.contatti.filter((singleContact) => {
         return singleContact.name.toLowerCase().includes(this.searchContact.toLowerCase());
       });
-      return filteredContacts;
+      return (filteredContacts.sort((b, a) => a.messages[(a.messages.length - 1)].date.slice(-8, -3).localeCompare(b.messages[(b.messages.length - 1)].date.slice(-8, -3))));
     },
   },
 
