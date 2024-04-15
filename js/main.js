@@ -23,7 +23,7 @@ const app = createApp({
             },
             {
               date: '12/01/2020 16:15:22',
-              message: 'Tutto fatto!',
+              message: 'Tranquilla ho fatto tutto!',
               status: 'received'
             }
           ],

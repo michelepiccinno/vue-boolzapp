@@ -131,7 +131,8 @@
                                  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
                                     data-bs-display="static" aria-expanded="false">
                                  </button>
-                                 <ul class="dropdown-menu dropdown-menu-sm-end">
+                                 <ul class="dropdown-menu"
+                                 v-bind:class="[((singleMessage.status === 'received') && (singleMessage.message.length < 20)) ? 'dropdown-menu-start' : 'dropdown-menu-end']">
                                     <li><a class="dropdown-item" @click="deleteMessage(singleMessage)" href="#">Elimina
                                           messaggio</a></li>
                                  </ul>
