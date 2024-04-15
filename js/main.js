@@ -190,12 +190,29 @@ const app = createApp({
       *let "filteredContacts. 
       *Dispone i contatti in ordine decrescente rispetto all'hh.mm dell'ultimo messaggio inviato o ricevuto
       */
-    filteredContacts() {
-      let filteredContacts = this.contatti.filter((singleContact) => {
-        return singleContact.name.toLowerCase().includes(this.searchContact.toLowerCase());
+    /*    filteredContacts() {
+         let filteredContacts = this.contatti.filter((singleContact) => {
+           return singleContact.name.toLowerCase().includes(this.searchContact.toLowerCase());
+         });
+         return (filteredContacts.sort((b, a) => a.messages[(a.messages.length - 1)].date.slice(-8, -3).localeCompare(b.messages[(b.messages.length - 1)].date.slice(-8, -3))));
+       }, */
+
+
+    
+    filteredChat() {
+      let chatFiltered = [];
+      this.contatti.filter((singleChat) => {
+        singleChat.messages.forEach((element => {
+          if ((element.message.toLowerCase().includes(this.searchContact.toLowerCase()))) {
+            chatFiltered.includes(singleChat) ? '' : chatFiltered.push(singleChat); //evita di stampare il contatto n volte quanti sono i suoi messaggi
+          } 
+        }));
       });
-      return (filteredContacts.sort((b, a) => a.messages[(a.messages.length - 1)].date.slice(-8, -3).localeCompare(b.messages[(b.messages.length - 1)].date.slice(-8, -3))));
+      console.log(chatFiltered);
+      return chatFiltered;
     },
+
+
   },
 
   methods: {

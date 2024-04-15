@@ -65,10 +65,11 @@
                      </div>
                      <!-- /SEARCH -->
 
-                     <!-- CONTACTS LIST -->
+                     <!-- CONTACTS & CHAT LIST -->
                      <ul class="list-contacts list-group bg-white">
-                        <button class="btn-contacts">
-                           <li class="list-element list-group-item list-group-item-action d-flex py-3"
+                        <button class="btn-contacts">                           
+                           <!-- CONTACTS -->
+        <!--                    <li class="list-element list-group-item list-group-item-action d-flex py-3"
                               v-bind:class="singleContact.visible ? 'bg-body-secondary' : ''"
                               v-for="(singleContact) in filteredContacts" @click="selectContact(singleContact)">
                               <div>
@@ -84,15 +85,33 @@
                                  <span>{{singleContact.messages[singleContact.messages.length - 1].date.slice(-8,
                                     -3)}}</span>
                               </div>
+                           </li> -->
+                           <!-- /CONTACTS -->
+                           <!-- CHAT -->
+                           <li class="list-element list-group-item list-group-item-action d-flex py-3"
+                              v-bind:class="singleChat.visible ? 'bg-body-secondary' : ''"
+                              v-for="(singleChat) in filteredChat" @click="selectContact(singleChat)">
+                              <div>
+                                 <img class="img-avatar" v-bind:src="'imgs/avatar' + singleChat.avatar + '.jpg'"
+                                    alt="avatar">
+                              </div>
+                              <div class="d-flex flex-column px-4 me-auto">
+                                 <span>{{singleChat.name}}</span>
+                                 <span class="last-msg">{{singleChat.messages[singleChat.messages.length -
+                                    1].message}}</span>
+                              </div>
+                              <div>
+                                 <span>{{singleChat.messages[singleChat.messages.length - 1].date.slice(-8,
+                                    -3)}}</span>
+                              </div>
                            </li>
+                           <!-- /CHAT -->
                         </button>
                      </ul>
-                     <!-- /CONTACTS LIST -->
+                     <!-- /CONTACTS & CHAT LIST -->
 
                   </div>
                   <!-- /LEFT SIDE -->
-
-
 
 
                   <!--RIGHT SIDE-->
