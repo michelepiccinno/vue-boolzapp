@@ -99,17 +99,13 @@
                                  <span>{{singleChat.name}}</span>
 
 
-                                
-
-                                 
-                                    <span class="last-msg" v-for="(singleMessage) in singleChat.messages">
-                                   
-                                       <p v-show="singleMessage.message.includes(searchContact)">{{singleMessage.message}}</p>
+                                 <span class="last-msg" v-for="messages in singleChat.messages.slice().reverse()"> <!-- ordine temporale decrescente -->
+                                    <span v-if="messages.message.toLowerCase().includes(searchContact)">
+                                       {{messages.message}}
+                                    </span>
                                  </span>
-
-
-
                                  
+
                               </div>
                               <div>
                                  <span>{{singleChat.messages[singleChat.messages.length - 1].date.slice(-8,
