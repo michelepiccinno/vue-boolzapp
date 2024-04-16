@@ -198,14 +198,14 @@ const app = createApp({
        }, */
 
 
-    
+
     filteredChat() {
       let chatFiltered = [];
       this.contatti.filter((singleChat) => {
         singleChat.messages.forEach((element => {
           if ((element.message.toLowerCase().includes(this.searchContact.toLowerCase()))) {
             chatFiltered.includes(singleChat) ? '' : chatFiltered.push(singleChat); //evita di stampare il contatto n volte quanti sono i suoi messaggi
-          } 
+          }
         }));
       });
       console.log(chatFiltered);
