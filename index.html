@@ -69,7 +69,8 @@
                      <ul class="list-contacts list-group bg-white">
                         <button class="btn-contacts">
                            <!-- CONTACTS -->
-                           <!--                    <li class="list-element list-group-item list-group-item-action d-flex py-3"
+                           <h6 class="p-1">Contatti</h6>
+                           <li class="list-element list-group-item list-group-item-action d-flex py-3"
                               v-bind:class="singleContact.visible ? 'bg-body-secondary' : ''"
                               v-for="(singleContact) in filteredContacts" @click="selectContact(singleContact)">
                               <div>
@@ -85,9 +86,11 @@
                                  <span>{{singleContact.messages[singleContact.messages.length - 1].date.slice(-8,
                                     -3)}}</span>
                               </div>
-                           </li> -->
+                           </li>
                            <!-- /CONTACTS -->
+
                            <!-- CHAT -->
+                           <h6 class="p-1">Messaggi</h6>
                            <li class="list-element list-group-item list-group-item-action d-flex py-3"
                               v-bind:class="singleChat.visible ? 'bg-body-secondary' : ''"
                               v-for="(singleChat) in filteredChat" @click="selectContact(singleChat)">

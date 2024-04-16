@@ -185,20 +185,21 @@ const app = createApp({
 
   computed: {
 
-    /**Confronta i caratteri digitati nella search input con i caratteri che compongo
-      *in nomi contenuti nell'array di oggetti e ritorna i contatti filtrati nella
-      *let "filteredContacts. 
-      *Dispone i contatti in ordine decrescente rispetto all'hh.mm dell'ultimo messaggio inviato o ricevuto
-      */
-    /*    filteredContacts() {
-         let filteredContacts = this.contatti.filter((singleContact) => {
-           return singleContact.name.toLowerCase().includes(this.searchContact.toLowerCase());
-         });
-         return (filteredContacts.sort((b, a) => a.messages[(a.messages.length - 1)].date.slice(-8, -3).localeCompare(b.messages[(b.messages.length - 1)].date.slice(-8, -3))));
-       }, */
+    /**Confronta i caratteri digitati nella search input con i caratteri che compongono
+    *i nomi contenuti nell'array di oggetti e ritorna i contatti filtrati
+    *Dispone i contatti in ordine decrescente rispetto all'hh.mm dell'ultimo messaggio inviato o ricevuto
+    */
+    filteredContacts() {
+      let filteredContacts = this.contatti.filter((singleContact) => {
+        return singleContact.name.toLowerCase().includes(this.searchContact.toLowerCase());
+      });
+      return (filteredContacts.sort((b, a) => a.messages[(a.messages.length - 1)].date.slice(-8, -3).localeCompare(b.messages[(b.messages.length - 1)].date.slice(-8, -3))));
+    },
 
 
-
+    /**Confronta i caratteri digitati nella search input con i caratteri che compongono
+    *i messaggi nell'array di oggetti e ritorna i contatti filtrati
+    */
     filteredChat() {
       let chatFiltered = [];
       this.contatti.filter((singleChat) => {
