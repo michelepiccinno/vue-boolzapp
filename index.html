@@ -69,7 +69,7 @@
                      <ul class="list-contacts list-group bg-white">
                         <button class="btn-contacts">
                            <!-- CONTACTS LIST -->
-                           <h6 class="p-1" v-bind:class="!searchContact ? 'd-none' : ''">Contatti</h6>
+                           <h6 class="p-1" v-bind:class="!searchContact ? 'd-none' : (filteredContacts.length===0 ? 'd-none' : '')">Contatti</h6>
                            <li class="list-element list-group-item list-group-item-action d-flex py-3"
                               v-bind:class="singleContact.visible ? 'bg-body-secondary' : ''"
                               v-for="(singleContact) in filteredContacts" @click="selectContact(singleContact)">
@@ -91,7 +91,7 @@
 
                            <!-- CHAT LIST -->
                            <div v-bind:class="!searchContact ? 'd-none' : ''">
-                              <h6 class="p-1">Messaggi</h6>
+                              <h6 class="p-1" v-bind:class="!searchContact ? 'd-none' : (filteredChat.length===0 ? 'd-none' : '')">Messaggi</h6>
                               <li class="list-element list-group-item list-group-item-action d-flex py-3"
                                  v-bind:class="singleChat.visible ? 'bg-body-secondary' : ''"
                                  v-for="(singleChat) in filteredChat" @click="selectContact(singleChat)">
