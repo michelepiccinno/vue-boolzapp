@@ -173,7 +173,7 @@ const app = createApp({
 
       /* currentContact: null, */
 
-      messageIn: '',
+      messageIn: ' ',
 
       /* oldSelectedContact: null, */
 
@@ -245,6 +245,7 @@ const app = createApp({
         status: 'sent',
         date: this.assingDate()
       });
+    this.messageIn = ' ';
       const contactToReply = this.currentContact
       setTimeout(() => {
         this.pushOkMessage(contactToReply);
